@@ -4,35 +4,35 @@ variable "env" {
 }
 
 variable "release" {
-  type        = "map"
+  type        = map(string)
   description = "Metadata about the release"
   default     = {}
 }
 
 variable "family" {
   description = "A unique name for your task defintion."
-  type        = "string"
+  type        = string
 }
 
 variable "container_definitions" {
   description = "A list of valid container definitions provided as a single valid JSON document."
-  type        = "list"
+  type        = list(string)
 }
 
 variable "policy" {
   description = "A valid IAM policy for the task"
-  type        = "string"
+  type        = string
 }
 
 variable "volume" {
   description = "Volume block map with 'name' and 'host_path'."
-  type        = "map"
+  type        = map(string)
   default     = {}
 }
 
 variable "assume_role_policy" {
   description = "A valid IAM policy for assuming roles - optional"
-  type        = "string"
+  type        = string
   default     = ""
 }
 
@@ -43,6 +43,7 @@ variable "is_test" {
 
 variable "network_mode" {
   description = "Network mode valid values are: none, bridge, awsvpc, and host. Default is bridge (See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html)"
-  type        = "string"
+  type        = string
   default     = "bridge"
 }
+
